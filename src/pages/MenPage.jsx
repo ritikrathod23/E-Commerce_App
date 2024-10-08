@@ -14,14 +14,15 @@ function MenPage() {
       // console.log(filtered)
       // setData(filtered)
 
-      const url = 'https://ecommerce-api3.p.rapidapi.com/menswear';
-const options = {
-	method: 'GET',
-	headers: {
-		'x-rapidapi-key': 'f6f76f7173msh52427597856ab78p125448jsn764df568ba7e',
-		'x-rapidapi-host': 'ecommerce-api3.p.rapidapi.com'
-	}
-};
+      const url = "https://ecommerce-api3.p.rapidapi.com/menswear";
+      const options = {
+        method: "GET",
+        headers: {
+          "x-rapidapi-key":
+            "f6f76f7173msh52427597856ab78p125448jsn764df568ba7e",
+          "x-rapidapi-host": "ecommerce-api3.p.rapidapi.com",
+        },
+      };
 
       try {
         const response = await fetch(url, options);
@@ -42,8 +43,7 @@ const options = {
           <Card
             title={item.Brand}
             image={item.Image}
-            price={item.Price
-            }
+            price={item.Price}
             description={item.Description}
           />
         ))}

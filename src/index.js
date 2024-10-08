@@ -12,7 +12,7 @@ import  Product from './pages/Product'
 import Layout from './pages/Layout';
 import MobilesPage from './pages/MobilesPage';
 import Cart from './pages/Cart'
-
+import {Header} from './components/index'
 
 const router =createBrowserRouter([
   {
@@ -34,6 +34,10 @@ const router =createBrowserRouter([
       {
         path: '/cart',
         element: <Cart/>,
+      },
+      {
+        path: '/header',
+        element: <Header/>,
       },
       {
         path: "/product/:id",
