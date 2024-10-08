@@ -18,7 +18,7 @@ function Navbar() {
     <Link to={"/"}>
       <h1 className="flex items-center">
         <img src={logo} alt="" className="w-10 h-10 mr-3 md:w-14 md:h-14" />
-        <span className="font-semibold text-lg md:text-xl">SmileShop</span>
+        <span className="font-semibold text-lg md:text-xl-  hidden md:block ">SmileShop</span>
       </h1>
     </Link>
   
@@ -35,14 +35,14 @@ function Navbar() {
                 </svg>
             </div>
             <input type="search" id="default-search" className="block md:w-96 w-full  p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-3xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." required />
-            <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+            <button type="submit" className=" hidden md:block text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
         </div>
     </form>
 
   
     {/* Buttons */}
     <div className="flex items-center justify-end space-x-4">
-      <FaSearch className="text-xl md:text-2xl cursor-pointer" />
+      {/* <FaSearch className="text-xl md:text-2xl cursor-pointer" /> */}
       
       <Link to={"/cart"} className="relative">
         <FaCartPlus className="text-xl md:text-2xl cursor-pointer" />
