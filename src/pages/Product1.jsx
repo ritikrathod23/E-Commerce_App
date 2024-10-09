@@ -319,7 +319,6 @@ function Product() {
                     </div> */}
                 </div>
             </div>
-            <script></script>
         </>
     );
 }

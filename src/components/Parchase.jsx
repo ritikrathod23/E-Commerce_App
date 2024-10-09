@@ -30,7 +30,7 @@ function Parchase(data, Counter) {
 
       <div class="flex flex-col p-4 gap-4 text-lg font-semibold shadow-md border rounded-sm">
         <div class="flex flex-row justify-between">
-          <p class="text-gray-600">Subtotal ({details.length + Counter} Items)</p>
+          <p class="text-gray-600">Subtotal ({details.length } Items)</p>
           <p class="text-end font-bold"></p>
         </div>
         <hr class="bg-gray-200 h-0.5" />
