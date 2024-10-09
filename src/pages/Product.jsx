@@ -12,9 +12,6 @@ function Product() {
     const [data, setData] = useState([]);
     const [features, setFeatures] = useState([]);
 
-    // const items = useSelector(state => state.cart.items);
-    // console.log("Items: ", items);
-
     useEffect(() => {
         const fetchdata = async () => {
             const url = `https://real-time-flipkart-api.p.rapidapi.com/product-details?pid=${id}`;

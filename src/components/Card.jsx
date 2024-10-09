@@ -1,6 +1,7 @@
 import React from 'react'
 
-function Card({image, title, description, price}) {
+function Card({image, title, description, price, key }) {
+    // key= key;
     return (
         //     <!-- component -->
         // <!-- component -->

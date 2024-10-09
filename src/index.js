@@ -13,6 +13,8 @@ import Layout from './pages/Layout';
 import MobilesPage from './pages/MobilesPage';
 import Cart from './pages/Cart'
 import {Header} from './components/index'
+import Product1 from './pages/Product1';
+
 
 const router =createBrowserRouter([
   {
@@ -44,6 +46,10 @@ const router =createBrowserRouter([
       {
         path: "/product/:id",
         element: <Product/>,
+      },
+      {
+        path: "/product1/:id",
+        element: <Product1/>,
       }
 
     ]

@@ -21,7 +21,7 @@ function Dashboard() {
     <div className='flex justify-center items-center flex-wrap gap-5  mt-4 '>
 
     {data.map((item)=>(
-      <Link to={`/product/${item.id}`}>
+      <Link to={`/product1/${item.id}`}>
         <Card title={item.title}
          image={item.image}
          price={item.price} 

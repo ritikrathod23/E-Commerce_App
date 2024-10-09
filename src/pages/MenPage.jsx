@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux/actions";
 
 function MenPage() {
   const [data, setData] = useState([]);
-  const [details, setDetails] = useState([]);
+  const navigate = useNavigate();  // Use useNavigate instead of useNavigation
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchedData = async () => {
-      // const res = await fetch('https://fakestoreapi.com/products')
-      // const data = await res.json()
-
-      // const filtered = data.filter((item)=>(item.category === "men's clothing"))
-      // console.log(filtered)
-      // setData(filtered)
-
       const url = "https://ecommerce-api3.p.rapidapi.com/menswear";
       const options = {
         method: "GET",
@@ -27,25 +24,29 @@ function MenPage() {
       try {
         const response = await fetch(url, options);
         const result = await response.json();
-        // const detail = result.data.products
         setData(result);
-        console.log(result);
+        console.log("mens data", result);
       } catch (error) {
         console.error(error);
       }
     };
     fetchedData();
   }, []);
+
+
   return (
     <div className="">
       <div className="flex justify-center items-center flex-wrap gap-5  mt-4 ">
-        {data.map((item) => (
+        {data.map((item, key) => (
+          <Link to={`/product1/${key}`}>
           <Card
+            key={key}
             title={item.Brand}
             image={item.Image}
             price={item.Price}
             description={item.Description}
           />
+          </Link>
         ))}
       </div>
     </div>
