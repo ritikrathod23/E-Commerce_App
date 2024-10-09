@@ -10,7 +10,7 @@ function Product1() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [data, setData] = useState([]);
-  const [features, setFeatures] = useState([]);
+  const [features, setFeatures] = useState([])
 
   // const items = useSelector(state => state.cart.items);
   // console.log("Items: ", items);
