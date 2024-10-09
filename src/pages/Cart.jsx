@@ -25,7 +25,7 @@ function Cart() {
   return (
     <>
             {/* <!-- component --> */}
-        <div class="flex flex-col md:flex-row w-screen h-full px-14 py-7">
+        <div class="flex flex-col md:flex-row w-screen h-full sm:px-14  px-4 py-7">
 
             {/* <!-- My Cart --> */}
           

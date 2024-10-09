@@ -212,14 +212,14 @@ function Product() {
                         </button>
                         
                         <button onClick={handleCartButton}
-                         className="dark:bg-white dark:text-gray-900
-                          dark:hover:bg-gray-100 focus:outline-none focus:ring-2
+                         className="
+                          focus:outline-none focus:ring-2
                            focus:ring-offset-2 focus:ring-gray-800 text-base
                             flex items-center justify-center leading-none text-white
                              bg-gray-800 w-40 py-4 hover:bg-gray-700">
                 
                             <svg
-                                className="mr-3 text-white dark:text-gray-900"
+                                className="mr-3 text-white "
                                 width="16"
                                 height="17"
                                 viewBox="0 0 16 17"
@@ -265,7 +265,7 @@ function Product() {
                             point of usingLorem Ipsum is that it has a more-or-less normal
                             distribution of letters.
                         </p>
-                        <div className="text-base leading-4 mt-7 text-gray-600 dark:text-gray-300">
+                        <div className="text-base leading-4 mt-7 text-gray-600 ">
                             
 
                         {/* {data?.specifications?.length > 0 ? (
@@ -278,16 +278,16 @@ function Product() {
                             <p className="text-base text-gray-500 dark:text-gray-400">No highlights available</p>
                         )} */}
                         </div>
-                        <p className="text-base leading-4 mt-4 text-gray-600 dark:text-gray-300">
+                        <p className="text-base leading-4 mt-4 text-gray-600 ">
                             Length: 13.2 inches
                         </p>
-                        <p className="text-base leading-4 mt-4 text-gray-600 dark:text-gray-300">
+                        <p className="text-base leading-4 mt-4 text-gray-600 ">
                             Height: 10 inches
                         </p>
-                        <p className="text-base leading-4 mt-4 text-gray-600 dark:text-gray-300">
+                        <p className="text-base leading-4 mt-4 text-gray-600 ">
                             Depth: 5.1 inches
                         </p>
-                        <p className="md:w-96 text-base leading-normal text-gray-600 dark:text-gray-300 mt-4">
+                        <p className="md:w-96 text-base leading-normal text-gray-600  mt-4">
                             Composition: 100% calf leather, inside: 100% lamb leather
                         </p>
                     </div>

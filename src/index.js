@@ -24,21 +24,23 @@ const router =createBrowserRouter([
         element: <Dashboard/>,
       },
       {
+        path: '/header',
+        element: <Header/>,
+      },
+      {
         path: '/menpage',
         element: <MenPage/>,
       },
       {
         path: '/mobilespage',
         element: <MobilesPage/>,
+        children: []
       },
       {
         path: '/cart',
         element: <Cart/>,
       },
-      {
-        path: '/header',
-        element: <Header/>,
-      },
+      
       {
         path: "/product/:id",
         element: <Product/>,
