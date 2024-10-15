@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
 import { Link } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css'
 
 function MobilesPage() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchedData = async () => {
+      setLoading(true)
       const url =
         "https://real-time-flipkart-api.p.rapidapi.com/products-by-category?category_id=tyy%2C4io&page=1&sort_by=popularity";
       const options = {
@@ -23,6 +27,7 @@ function MobilesPage() {
         const result = await response.json();
         const detail = result.products;
         setData(detail);
+        setLoading(false)
         console.log(result.products);
       } catch (error) {
         console.error(error);
@@ -32,6 +37,13 @@ function MobilesPage() {
   }, []);
   return (
     <div className="">
+      {loading ? (
+        <div  className=" absolute flex justify-center items-center flex-wrap gap-5  mt-4 " > 
+          {[...Array(10)].map((_, index) => (
+          <Skeleton key={index} width={320} height={420} />
+        ))}
+        </div>
+      ) : (
       <div className="flex justify-center items-center flex-wrap gap-5  mt-4 ">
         {data.map((item) => (
           <Link to={`/product/${item.pid}`}>
@@ -44,6 +56,7 @@ function MobilesPage() {
           </Link>
         ))}
       </div>
+      )}
     </div>
   );
 }
