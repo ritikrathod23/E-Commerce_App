@@ -5,20 +5,22 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../redux/actions";
 import { Toaster } from "react-hot-toast";
 import toast from "react-hot-toast";
-import Skeleton from "react-loading-skeleton";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 function Product() {
     const dispatch = useDispatch();
     const { id } = useParams();
     const [data, setData] = useState([]);
+    const [image, setImage ] = useState([])
     const [features, setFeatures] = useState([]);
-    const [isLoading, setLoading] = useState(true)
+    const [isLoading, setLoading ] = useState(false)
     
 
     useEffect(() => {
         
         
-        const fetchdata = async () => {
+        const fetchdata = async  () => {
+            setLoading(true)
             const url = `https://real-time-flipkart-api.p.rapidapi.com/product-details?pid=${id}`;
             const options = {
                 method: "GET",
@@ -33,13 +35,14 @@ function Product() {
                 const response = await fetch(url, options);
                 const result = await response.json();
                 setData(result);
+                setImage(result.images)
                 console.log(result)
             } catch (error) {
                 console.error(error);
             }
-        };
-
-        setLoading(false)
+            setLoading(false)
+        }
+        
          fetchdata();
     }, []);
 
@@ -51,7 +54,6 @@ function Product() {
 
     }
 
-    // if(isPending) return <h1 className="flex items-center text-4xl"> LOADing........ </h1>
 
     return (
         <>
@@ -62,27 +64,34 @@ function Product() {
                 // reverseOrder={false}
                 />
             </div>
-            {isLoading?(
-                <h1>Loading......</h1>
-            ):(
+            {isLoading ? (
+                <div className=" overflow-x-hidden  md:flex items-center content-center gap-16 justify-center py-12 2xl:px-20 md:px-6  px-4 ">
+                    <div className="">
+                        <Skeleton width={400} height={500}  />
+                    </div>
+                    <div className="flex flex-col gap-5 justify-center items-center  ">
+                    <SkeletonTheme>
+                        <Skeleton width={600} height={70}/>
+                        <Skeleton width={600} height={136}/>
 
-            
-
-            
-            
-
-            
+                        <Skeleton width={600} height={48}  />
+                        <Skeleton width={600} height={200}  />
+                    </SkeletonTheme>
+                        
+                    </div>
+                </div>
+            ) :(
 
                 
 
             <div className="md:flex items-start justify-center py-12 2xl:px-20 md:px-6 px-4">
 
-
+                {image && (
                 <div className="xl:w-2/6 lg:w-2/5 w-80 ">
                     <img
                         className="w-full"
                         alt="image"
-                        src={data.images}
+                        src={image[0]}
                     />
 
                     <div className="flex items-center justify-between mt-3 space-x-4 md:space-x-0">
@@ -91,25 +100,26 @@ function Product() {
                             className="lg:w-20 w-20"
                             // width={100}
                             // className="lg:w-20 sm:w-98  sm:h-98 lg:h-24 w-full"
-                            src={data.images}
+                            src={image[1]}
                         />
                         <img
                             alt="no image"
                             className="lg:w-20 w-20"
-                            src={data.images}
+                            src={image[2]}
                         />
                         <img
                             alt="no image"
                             className="lg:w-20 w-20"
-                            src={data.images}
+                            src={image[3]}
                         />
                         <img
                             alt="no image"
                             className="lg:w-20 w-20"
-                            src={data.images}
+                            src={image[4]}
                         />
                     </div>
                 </div>
+                )}
                 <div className="xl:w-2/5 md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
                     <div className="border-b border-gray-200 pb-6">
                         <p className="text-sm leading-none text-gray-600 dark:text-gray-300 ">
@@ -332,7 +342,7 @@ function Product() {
             </div>
 
             )}
-        
+
         </>
     );
 }

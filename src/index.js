@@ -6,14 +6,11 @@ import { Provider } from 'react-redux';
 import store from './redux/store'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-import MenPage from './pages/MenPage';
-import  Product from './pages/Product'
-import Layout from './pages/Layout';
-import MobilesPage from './pages/MobilesPage';
-import Cart from './pages/Cart'
+
 import {Header} from './components/index'
-import Product1 from './pages/Product1';
+
+import {Cart, Dashboard, Layout, Login,  MenPage, MobilesPage, Product, Product1} from './pages/index'
+
 
 
 const router =createBrowserRouter([
@@ -28,6 +25,10 @@ const router =createBrowserRouter([
       {
         path: '/header',
         element: <Header/>,
+      },
+      {
+        path: '/login',
+        element: <Login/>,
       },
       {
         path: '/menpage',
