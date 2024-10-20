@@ -47,7 +47,7 @@ function Product() {
     const handleCartButton = (e) => {
         e.preventDefault();
         toast.success("Successfully added to cart!");
-        dispatch(addItem({pid: data.pid ,title: data.title, price: data.price, image: image[0] }));
+        dispatch(addItem({pid: data.pid ,title: data.title, price: data.price, image: image[0], quantity:1 }));
     };
 
     return (

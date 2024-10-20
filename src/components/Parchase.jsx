@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
-function Parchase(data, Counter) {
-    console.log('itemCounter: ', Counter)
+function Parchase(data) {
+    // console.log('itemCounter: ', Counter)
   const [price, setPrice] = useState(null); // Set initial value for price
   const details = data.data;
 
