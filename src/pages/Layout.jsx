@@ -8,7 +8,9 @@ function Layout() {
     <>
     <Navbar/>
     <Header/>
-    <Outlet/>
+    <div className='flex content-center justify-center items-center'>
+    <Outlet />
+    </div>
     </>
   )
 }

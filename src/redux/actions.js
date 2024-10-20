@@ -1,20 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Define the initial state, which is an object containing an empty `items` array.
+// Get the initial cart data from localStorage
+const getInitialCart = () => {
+    const storedCart = localStorage.getItem("cart");
+    console.log("storedCart", storedCart);
+    return storedCart ? JSON.parse(storedCart) : [];
+};
+
+const initialState = getInitialCart();
 
 export const cartSlice = createSlice({
-    name: 'addtoCart',
-    initialState : [],  // Use the object defined above as the initial state
+    name: 'cartItems', // Unique name for the slice
+    initialState,
     reducers: {
         addItem: (state, action) => {
-            // Since `state.items` is an array, we can push to it directly
-            state.push(action.payload);   
+            state.push(action.payload);
+            localStorage.setItem("cart", JSON.stringify(state));
+        },
+        deleteItem: (state, action) => {
+            const index = state.find(item => item.pid === action.payload.pid);
+            if (index !== -1) {
+                state.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(state));
+            }
         },
     },
 });
 
-// Export the action created by `createSlice`
-export const { addItem } = cartSlice.actions;
-
-// Export the reducer to be used in your store
+// Export the actions and reducer
+export const { addItem, deleteItem } = cartSlice.actions;
 export default cartSlice.reducer;

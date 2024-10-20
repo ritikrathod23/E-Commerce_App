@@ -13,7 +13,7 @@ export default function Login() {
 
   return (
     <>  
-        <div className="flex justify-center items-center w-96 m-2 mt-5  ">
+        <div className="flex justify-center content-center items-center w-96 m-2 mt-5">
           <div className="rounded-lg flex min-h-40 bg-slate-700 flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
               <h2 className="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">

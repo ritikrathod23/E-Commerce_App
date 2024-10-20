@@ -13,11 +13,12 @@ function Parchase(data, Counter) {
         const price = details.reduce((sum, element) => {
             return sum + element.price;  // Add each element's price to the sum
           }, 0);
-        setPrice(price)
+        setPrice(price
+          )
     }
   }, [details]); // Add details to the dependency array to avoid unnecessary re-renders
   console.log(price)
-
+ 
   const handleFinish=() =>{
     toast.success("Thanks for Purching")
   } 

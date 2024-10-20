@@ -1,18 +1,25 @@
-import React, { useState } from 'react'
-import image from '../accest/image.svg'
-import { UseSelector, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom';
+import React, {  useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Parchase from '../components/Parchase';
 
+import { MdDeleteOutline } from "react-icons/md";
+import { deleteItem } from '../redux/actions';
+
 function Cart() {
-    const [cart, setCart] = useState([])
+    // const [cart, setCart] = useState(false)
+    const dispatch = useDispatch();
     const [itemCounter, setItemCounter ] = useState(1);
     const items  = useSelector(state => state);
     const data = items.cart
     const len = data.length;
-    // setDetails(items.cart[0])
-    console.log("item ", len )
+   
+    console.log("data ", data )
     console.log("count ", itemCounter )
+
+    const handleDelete = () => {
+        console.log("button Clicked")
+        dispatch(deleteItem({pid: items.pid}))
+    }
 
     const handlePlus = () =>{
         setItemCounter(itemCounter + 1)
@@ -22,6 +29,14 @@ function Cart() {
         setItemCounter(itemCounter-1)
         }
     }
+
+if(len  === 0){
+    return (
+    <div className='flex justify-center items-center text-center text-3xl mt-28'>
+        No cart available, Please add
+    </div>)
+}
+else {
   return (
     <>
             {/* <!-- component --> */}
@@ -33,8 +48,8 @@ function Cart() {
                 <p class="text-blue-900 text-xl font-extrabold">My cart</p>
 
                 {/* <!-- Product --> */}
-                { data.map((item, index) => (
-                <div class="flex flex-col p-4 text-lg font-semibold shadow-md border rounded-sm">
+                { data ? ( data.map((item, index) => (
+                <div key={index} class="flex flex-col p-4 text-lg font-semibold shadow-md border rounded-sm">
                     <div class="flex flex-col md:flex-row gap-3 justify-between">
                         {/* <!-- Product Information --> */}
                         <div class="flex flex-row gap-6 items-center">
@@ -63,7 +78,7 @@ function Cart() {
                         </div>
                     </div>
                     {/* <!-- Product Quantity --> */}
-                    <div class="flex flex-row self-center gap-1">
+                    <div class="flex flex-row self-center  gap-1">
                         <button onClick={handleMinus} class="w-5 h-5 self-center rounded-full border border-gray-300">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M5 12h14" />
@@ -77,18 +92,31 @@ function Cart() {
                                 <path d="M12 5v14M5 12h14" />
                             </svg>
                         </button>
+
+                        <button onClick={handleDelete} >
+                        <MdDeleteOutline className='text-4xl relative text-gray-500 opacity-70  left-48'
+                        />
+                        </button>
+
+
+
+                        
                     </div>
                 </div>
-                ))}
+                ))) : (
+                    <div className="flex flex-col items-center justify-center h-screen">
+                        no card
+                    </div>
+                )}
             </div>
           
         
 
             {/* <!-- Purchase Resume --> */}
-           <Parchase data ={data} Counter = {itemCounter} />
+            <Parchase data ={data} Counter = {itemCounter} />
         </div>
     </>
-  )
-}
+  )}
+}    
 
 export default Cart

@@ -38,9 +38,9 @@ function MobilesPage() {
   return (
     <div className="">
       {loading ? (
-        <div  className=" absolute flex justify-center items-center flex-wrap gap-5  mt-4 " > 
+        <div  className="flex justify-center items-center flex-wrap gap-5  mt-4 " > 
           {[...Array(10)].map((_, index) => (
-          <Skeleton key={index} width={320} height={420} />
+          <Skeleton key={index} width={290} height={420} />
         ))}
         </div>
       ) : (
@@ -48,6 +48,7 @@ function MobilesPage() {
         {data.map((item) => (
           <Link to={`/product/${item.pid}`}>
           <Card
+            
             title={item.title}
             image={item.images[0]}
             price={item.price}

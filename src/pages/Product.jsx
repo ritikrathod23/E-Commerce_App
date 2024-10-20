@@ -47,7 +47,7 @@ function Product() {
     const handleCartButton = (e) => {
         e.preventDefault();
         toast.success("Successfully added to cart!");
-        dispatch(addItem({ title: data.title, price: data.price, image: image[0] }));
+        dispatch(addItem({pid: data.pid ,title: data.title, price: data.price, image: image[0] }));
     };
 
     return (
@@ -130,9 +130,9 @@ function Product() {
                             </div>
                         </div>
 
-                        <div className="border-solid border-2 border-gray-300 h-auto text-gray-500">
-                            <b>Specifications</b>
-                            <div className="flex flex-col p-4">
+                        <div className=" h-auto text-gray-500">
+                            <div className=" px-4 font-bold border-2 border-opacity-50 border-b-0">Specifications</div >
+                            <div className="flex flex-col p-4 border-2 border-opacity-50 ">
                                 {Object.keys(specification).length > 0 ? (
                                     Object.entries(specification).map(([category, attributes], index) => (
                                         <div key={index} className="mb-4">
@@ -154,8 +154,8 @@ function Product() {
                         </div>
 
                         <div className=" text-gray-500 mt-4">
-                            <div className="border-2 border-b-0 border-gray-300 px-3  text-xl " >reviews and rating</div>
-                            <div className="flex flex-col p-4 border-solid border-2 border-gray-300 h-auto">
+                            <div className="border-2 border-opacity-50 border-b-0 border-gray-300 px-3  text-xl " >Reviews and Rating</div>
+                            <div className="flex flex-col  border-opacity-50 p-4 border-solid border-2 border-gray-300 h-auto">
                                 {Object.keys(rating).length > 0 ? (
                                     Object.entries(rating).map(([cataegory, attributes], index) => (
                                         <div key={index}  >

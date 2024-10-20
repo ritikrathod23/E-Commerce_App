@@ -20,7 +20,7 @@ function Header() {
 
         <Link to={'/women'}>
         <div className='cursor-pointer ' >
-            <div className='bg-green-400 w-16 h-16 rounded-full  '> 
+            <div className='bg-grey-400 w-16 h-16 rounded-full  '> 
             <img className='object-cover w-full h-full rounded-full  ' src={womenImage} alt="no image" />  
             </div>
             <div className='text-center'>Women</div>
