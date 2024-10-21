@@ -18,11 +18,15 @@ export const cartSlice = createSlice({
             localStorage.setItem("cart", JSON.stringify(state));
         },
         deleteItem: (state, action) => {
-            const index = state.find(item => item.pid === action.payload.pid);
-            if (index !== -1) {
-                state.splice(index, 1);
-                localStorage.setItem("cart", JSON.stringify(state));
-            }
+            // const index = state.find(item => item.pid === action.payload.pid);
+            // console.log("index",index)
+            // if (index !== -1) {
+            //     state.splice(index, 1);
+            //     localStorage.setItem("cart", JSON.stringify(state));
+            // }
+                const updated = state.filter(item => item.pid !== action.payload.pid)
+                localStorage.setItem("cart", JSON.stringify(updated));
+                return updated;
         },
         addQty: (state, action) => {
             const index = state.findIndex(item => item.pid === action.payload.pid);

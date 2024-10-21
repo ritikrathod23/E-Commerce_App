@@ -1,23 +1,41 @@
 import React, { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Parchase(data) {
-    // console.log('itemCounter: ', Counter)
+
   const [price, setPrice] = useState(null); // Set initial value for price
+  const [total, setTotal] = useState(null); // Set initial value for price
   const details = data.data;
+  console.log("details",details)
 
   // Use a conditional check or logic to set the price once
   useEffect(() => {
-    if (details && details.length > 0) {
-        const price = details.reduce((sum, element) => {
-            return sum + element.price;  // Add each element's price to the sum
-          }, 0);
-        setPrice(price
-          )
+
+    const priceSet = () =>{
+      if (details && details.length > 0) {
+        const allpdc = details. map((item) =>  {
+           const x = item.price * item.quantity
+           return x
+          })
+        setPrice(allpdc)
+      }
+      
+      if(price){
+        let sum = 0
+        price.forEach(ele => {
+          sum += ele
+        })
+        setTotal(sum)
+        console.log("sum :", sum)  
+      }
     }
-  }, [details]); // Add details to the dependency array to avoid unnecessary re-renders
-  console.log(price)
+    priceSet();
+    
+
+
+  }, [details, price, total]); // Add details to the dependency array to avoid unnecessary re-renders
  
   const handleFinish=() =>{
     toast.success("Thanks for Purching")
@@ -38,7 +56,7 @@ function Parchase(data) {
         <div class="flex flex-row justify-between">
           <p class="text-gray-600">Freight</p>
           <div>
-            <p class="text-end font-bold">{price}</p>
+            <p class="text-end font-bold">{total}</p>
             {/* <p class="text-gray-600 text-sm font-normal">Arrives on Jul 16</p> */}
           </div>
         </div>
@@ -51,7 +69,7 @@ function Parchase(data) {
         <div class="flex flex-row justify-between">
           <p class="text-gray-600">Total</p>
           <div>
-            <p class="text-end font-bold">{price + 40}</p>
+            <p class="text-end font-bold">{total + 40 }</p>
           </div>
         </div>
         <div class="flex gap-2">

@@ -15,18 +15,7 @@ function Cart() {
     const len = data.length;
    
     console.log("data ", data )
-    // console.log("count ", itemCounter )  
-
-    const handleDelete = () => {
-        console.log("button Clicked")
-        dispatch(deleteItem({pid: items.pid}))
-
-    }
-    const handleMinus = () =>{
-        // if(itemCounter > 1){
-        // setItemCounter(itemCounter-1)
-        // }
-    }
+    useEffect(() => {},[data])
 
 if(len  === 0){
     return (
@@ -103,7 +92,7 @@ else {
                                 
                                 <MdDeleteOutline 
                                  className='text-4xl text-gray-500 opacity-70  left-48'
-                                 onClick={handleDelete} 
+                                 onClick={(e) => dispatch(deleteItem({pid: item.pid}))} 
                                 />
                                 
                                 
