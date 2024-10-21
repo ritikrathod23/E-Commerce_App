@@ -107,12 +107,15 @@ function Product() {
                                 <span className="line-through font-normal">Rs {data.mrp}</span> Rs {data.price}
                             </p>
                         </div>
+                        {/* <div className="absolute bottom-3">
+                                    jeelle asnksj asj kak aslknksaln 
+                        </div> */}
 
-                        <div className="flex gap-3 justify-around mt-3">
+                        <div className="flex gap-3 justify-around lg:mt-3 fixed bottom-8 lg:relative lg:bottom-0">
                             <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-40 py-4 hover:bg-gray-700">
                                 Buy Now
                             </button>
-                            <button onClick={handleCartButton} className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-40 py-4 hover:bg-gray-700">
+                            <button onClick={handleCartButton} className="right-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-40 py-4 hover:bg-gray-700">
                                 Add to Cart
                             </button>
                         </div>
