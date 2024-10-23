@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 function Header() {
   return (
-    <div className='flex justify-center items-center bg-white shadow-md  h-28 md:gap-16 gap-6 mt-2'>
+    <div className=' overflow-x-scroll  justify-start items-start px-3 flex lg:justify-center lg:items-center bg-white shadow-md  h-28 md:gap-16 gap-6 mt-2'>
         <Link to={"/menpage"}>
         <div className='cursor-pointer ' >
             <div className='bg-gray-400 w-16 h-16 rounded-full '>

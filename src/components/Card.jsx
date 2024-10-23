@@ -5,8 +5,8 @@ function Card({image, title, description, price, key }) {
     return (
         //     <!-- component -->
         // <!-- component -->
-        <div className="flex flex-col text-gray-700 bg-white  cursor-pointer shadow-md bg-clip-border rounded-xl w-72">
-                    <div className=" flex justify-center items-center mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-72">
+        <div className="flex flex-col text-gray-700 bg-white  cursor-pointer shadow-md bg-clip-border rounded-xl w-40  lg:w-72">
+                    <div className=" flex justify-center items-center mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-36 lg:h-72">
                         <img
                             src={image}
                             alt="card-image" className="object-cover w-full h-full" />
