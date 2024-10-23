@@ -7,13 +7,13 @@ import toast from "react-hot-toast";
 
 function Product1() {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { id, type } = useParams();
   const [data, setData] = useState([]);
   const [features, setFeatures] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = "https://ecommerce-api3.p.rapidapi.com/menswear";
+      const url = `https://ecommerce-api3.p.rapidapi.com/${type}`;
       const options = {
         method: "GET",
         headers: {
@@ -28,6 +28,7 @@ function Product1() {
         const result = await response.json();
         setData(result);
         console.log("result", result)
+        console.log("type", type)
 
         const p = result.map((item) => item.Unnamed?.[0]);
 
@@ -102,7 +103,7 @@ return (
             Rs {features.Price}
           </p>
         </div>
-        <div className="flex gap-3 justify-around mt-3">
+        <div className="flex gap-3 justify-around lg:mt-3  fixed bottom-0 w-full lg:relative lg:bottom-0">
           <button className="dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-40 py-4 hover:bg-gray-700">
             Buy Now
           </button>

@@ -3,15 +3,15 @@ import Card from "../components/Card";
 import { Link, useNavigate } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 
-
-function MenPage() {
+function MaleFootWear() {
   const [data, setData] = useState([]);
-  const [ loading, setLoading ] = useState(false)
+  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     setLoading(true)
     const fetchedData = async () => {
-      const url = "https://ecommerce-api3.p.rapidapi.com/menswear";
+      const url = "https://ecommerce-api3.p.rapidapi.com/malefootwear";
       const options = {
         method: "GET",
         headers: {
@@ -25,8 +25,8 @@ function MenPage() {
         const response = await fetch(url, options);
         const result = await response.json();
         setData(result);
-        console.log("mens data", result);
         setLoading(false)
+        console.log("womens data", result);
       } catch (error) {
         console.error(error);
       }
@@ -38,15 +38,15 @@ function MenPage() {
   return (
     <div className="">
       {loading ? (
-        <div  className=" flex justify-center items-center flex-wrap gap-5  mt-4 " > 
+        <div  className="flex justify-center items-center flex-wrap gap-5  mt-4 " > 
           {[...Array(10)].map((_, index) => (
-          <Skeleton className="fixed" key={index} width={290} height={420} />
+          <Skeleton key={index} width={290} height={420} />
         ))}
         </div>
       ) : (
       <div className="flex justify-center items-center flex-wrap gap-5  mt-4 ">
         {data.map((item, key) => (
-          <Link to={`/product1/menswear/${key}`}>
+          <Link to={`/product1/malefootwear/${key}`}>
           <Card
             key={key}
             title={item.Brand}
@@ -56,10 +56,9 @@ function MenPage() {
           />
           </Link>
         ))}
-      </div>
-      )}
+      </div>)}
     </div>
   );
 }
 
-export default MenPage;
+export default MaleFootWear;

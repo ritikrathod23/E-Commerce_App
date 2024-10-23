@@ -9,7 +9,10 @@ import { BrowserRouter, RouterProvider, createBrowserRouter } from 'react-router
 
 import {Header} from './components/index'
 
-import {Cart, Dashboard, Layout, Login,  MenPage, MobilesPage, Product, Product1} from './pages/index'
+import {Cart, Dashboard, Layout, Login,  MenPage,
+  WomensWearPage, MobilesPage, Product, Product1, Watches , MaleFootWear,
+  FemaleFootWear } from './pages/index'
+import Books from './pages/Book';
 
 
 
@@ -35,9 +38,28 @@ const router =createBrowserRouter([
         element: <MenPage/>,
       },
       {
+        path: '/womenswear',
+        element: <WomensWearPage/>,
+      },
+      {
+        path: '/watches',
+        element: <Watches/>,
+      },
+      {
+        path: '/malefootwear',
+        element: <MaleFootWear/>,
+      },
+      {
+        path: '/femalefootwear',
+        element: <FemaleFootWear/>,
+      },
+      {
+        path: '/books',
+        element: <Books/>,
+      },
+      {
         path: '/mobilespage',
         element: <MobilesPage/>,
-        children: []
       },
       {
         path: '/cart',
@@ -49,7 +71,7 @@ const router =createBrowserRouter([
         element: <Product/>,
       },
       {
-        path: "/product1/:id",
+        path: "/product1/:type/:id",
         element: <Product1/>,
       }
 
