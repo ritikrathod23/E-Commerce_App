@@ -1,41 +1,44 @@
 import React, { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import {useDispatch, useSelector } from  'react-redux'
+
 
 function Parchase(data) {
+  const dispatch = useDispatch();
+  const items = useSelector(state => state.cart)
+  console.log("items",items)
 
-  const [price, setPrice] = useState(null); // Set initial value for price
-  const [total, setTotal] = useState(null); // Set initial value for price
-  const details = data.data;
-  console.log("details",details)
+  const [price, setPrice] = useState(null); 
+  const [total, setTotal] = useState(null);
 
   // Use a conditional check or logic to set the price once
   useEffect(() => {
 
     const priceSet = () =>{
-      if (details && details.length > 0) {
-        const allpdc = details. map((item) =>  {
-           const x = item.price * item.quantity
-           return x
-          })
-        setPrice(allpdc)
-      }
+      const total = items.reduce((acc, item) => {
+        return acc + item.price * item.quantity
+       
+      },0)
+      setPrice(total)
+      console.log("qnty",total)
+    
+    
       
-      if(price){
-        let sum = 0
-        price.forEach(ele => {
-          sum += ele
-        })
-        setTotal(sum)
-        console.log("sum :", sum)  
-      }
+      // if(price){
+      //   let sum = 0
+      //   price.forEach(ele => {
+      //     sum += ele
+      //   })
+      //   setTotal(sum)
+      //   console.log("sum :", sum)  
+      // }
     }
     priceSet();
     
 
 
-  }, [details, price, total]); // Add details to the dependency array to avoid unnecessary re-renders
+  }, [items]); // Add details to the dependency array to avoid unnecessary re-renders
  
   const handleFinish=() =>{
     toast.success("Thanks for Purching")
@@ -49,14 +52,14 @@ function Parchase(data) {
 
       <div class="flex flex-col p-4 gap-4 text-lg font-semibold shadow-md border rounded-sm">
         <div class="flex flex-row justify-between">
-          <p class="text-gray-600">Subtotal ({details.length } Items)</p>
+          <p class="text-gray-600">Subtotal ({items.length } Items)</p>
           <p class="text-end font-bold"></p>
         </div>
         <hr class="bg-gray-200 h-0.5" />
         <div class="flex flex-row justify-between">
           <p class="text-gray-600">Freight</p>
           <div>
-            <p class="text-end font-bold">{total}</p>
+            <p class="text-end font-bold">{price}</p>
             {/* <p class="text-gray-600 text-sm font-normal">Arrives on Jul 16</p> */}
           </div>
         </div>
@@ -69,7 +72,7 @@ function Parchase(data) {
         <div class="flex flex-row justify-between">
           <p class="text-gray-600">Total</p>
           <div>
-            <p class="text-end font-bold">{total + 40 }</p>
+            <p class="text-end font-bold">{price + 40 }</p>
           </div>
         </div>
         <div class="flex gap-2">
