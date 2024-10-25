@@ -6,8 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function Navbar() {
-  const items  = useSelector(state => state);
-  const data = items.cart
+  const items  = useSelector(state => state.cart);
+  const data = items
   const len = data.length;
   console.log("items.cart",len)
   return (

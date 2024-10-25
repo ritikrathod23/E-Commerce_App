@@ -36,7 +36,7 @@ else {
 
             {/* <!-- My Cart --> */}
           
-            <div class="w-full flex flex-col h-fit gap-4 p-4 ">
+            <div class="w-full  flex flex-col h-fit gap-4 p-4 ">
                 <p class="text-blue-900 text-xl font-extrabold">My cart</p>
 
                 {/* <!-- Product --> */}
@@ -94,12 +94,6 @@ else {
                                  className='text-4xl text-gray-500 opacity-70  left-48'
                                  onClick={(e) => dispatch(deleteItem({pid: item.pid}))} 
                                 />
-                                
-                                
-
-
-
-                                
                             </div>
                         </div>
                     
@@ -110,7 +104,7 @@ else {
         
 
             {/* <!-- Purchase Resume --> */}
-            <Parchase data ={data} />
+            <Parchase button={true} data ={data} />
         </div>
     </>
   )}

@@ -10,9 +10,10 @@ import { BrowserRouter, RouterProvider, createBrowserRouter } from 'react-router
 import {Header} from './components/index'
 
 import {Cart, Dashboard, Layout, Login,  MenPage,
-  WomensWearPage, MobilesPage, Product, Product1, Watches , MaleFootWear,
-  FemaleFootWear } from './pages/index'
-import Books from './pages/Book';
+        WomensWearPage, MobilesPage, Product, Product1, Watches , MaleFootWear,
+        FemaleFootWear, 
+        UserDetails, Books
+} from './pages/index'
 
 
 
@@ -64,6 +65,10 @@ const router =createBrowserRouter([
       {
         path: '/cart',
         element: <Cart/>,
+      },
+      {
+        path: '/userdetails',
+        element: <UserDetails/>,
       },
       
       {

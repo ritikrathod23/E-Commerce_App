@@ -11,8 +11,9 @@ import Watches from "./Watches";
 import MaleFootWear from './MaleFootWear'
 import FemaleFootWear from './FemaleFootWear'
 import Books from "./Book";
-
+import UserDetails from "./UserDetails";
 
 export {Cart, Dashboard, Layout, Login,  MenPage, MobilesPage, Product, Product1,
-        WomensWearPage, Watches, MaleFootWear, FemaleFootWear,  Books};
+        WomensWearPage, Watches, MaleFootWear, FemaleFootWear,  Books,
+        UserDetails};
 

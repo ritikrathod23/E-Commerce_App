@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 // Get the initial cart data from localStorage
 const getInitialCart = () => {
     const storedCart = localStorage.getItem("cart");
-    console.log("storedCart", storedCart);
     return storedCart ? JSON.parse(storedCart) : [];
 };
 
