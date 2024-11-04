@@ -1,16 +1,20 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import Parchase from '../components/Parchase'
+import toast, { Toaster } from 'react-hot-toast'
 
 function UserDetails() {
   const {register, handleSubmit} = useForm()
 
   const handleClick = (data) => {
     console.log(data)
+    toast.success("Order Placed");
+
   }
 
   return (
     <>
+    <Toaster position="top-center" />
     {/* <div>
     <h1 className='text-center'>Check Out</h1>
     </div> */}
